@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-y: hidden;
+}
+
+#title {
+  font-weight: bold;
+  position: absolute;
+  left: 50%;
+  top: 125%;
+  // opacity: 0;
+  font-size: 6rem;
+  transition: all 2s, transform 2s;
+  transform: rotate3d(1, 0, 0, 180deg) scale3d(10, 5, 1);
+}
+
+#hover:hover ~ #title {
+  top: 10%;
+  // opacity: 1;
+  font-size: 4rem;
+  transform: rotate3d(1, 0, 0, 0deg) scale3d(1.5, 1, 1);
+}
+
+#hover:hover ~ #txt {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+#txt {
+  position: absolute;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 2s;
+  top: 30%;
+}
+
+#txt span {
+  display: block;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+#hover:hover ~ #txt span {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+@for $i from 1 through 10 {
+  $delay: (11 - $i) * 0.1s;
+  #hover:hover ~ #txt span:nth-child(#{$i}) {
+    transition-delay: $delay;
+  }
+}
+
+#LDoor {
+  transition: 0.5s ease-out;
+  transform-origin: left;
+}
+
+#RDoor {
+  transition: 0.5s ease-out;
+  transform-origin: right;
+}
+
+.Door:hover {
+  > #LDoor {
+    // background-color: red;
+    transform: rotate3d(0, 1, 0, -150deg);
+  }
+  > #RDoor {
+    // background-color: red;
+    transform: rotate3d(0, 1, 0, 150deg);
+  }
+}
+
+.clip-path-trapezoid {
+  clip-path: polygon(10% 0, 90% 0, 100% 100%, 0 100%);
+}
+
+// 3D box
+/* #default-example {
+  background: linear-gradient(skyblue, khaki);
+  perspective: 800px;
+  perspective-origin: 150% 150%;
+}
+
+#example-element {
+  width: 100px;
+  height: 100px;
+  perspective: 550px;
+  transform-style: preserve-3d;
+  transform: scale3d(1.3, 1.3, 1.3) rotate3d(1, 1, 1, 45deg);
+}
+
+.face {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: inherit;
+  font-size: 60px;
+  color: #fff;
+}
+
+.front {
+  background: rgba(90, 90, 90, 0.7);
+  transform: translateZ(50px);
+}
+
+.back {
+  background: rgba(0, 210, 0, 0.7);
+  transform: rotateY(180deg) translateZ(50px);
+}
+
+.right {
+  background: rgba(210, 0, 0, 0.7);
+  transform: rotateY(90deg) translateZ(50px);
+}
+
+.left {
+  background: rgba(0, 0, 210, 0.7);
+  transform: rotateY(-90deg) translateZ(50px);
+}
+
+.top {
+  background: rgba(210, 210, 0, 0.7);
+  transform: rotateX(90deg) translateZ(50px);
+}
+
+.bottom {
+  background: rgba(210, 0, 210, 0.7);
+  transform: rotateX(-90deg) translateZ(50px);
+}
+  */
+
+/* Add more nth-child rules as needed for each line */

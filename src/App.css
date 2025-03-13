@@ -1,0 +1,350 @@
+@import "tailwindcss";
+
+@layer {
+  .text-primary {
+    color: #9b773d;
+  }
+
+  .bg-primary {
+    background-color: #9b773d;
+  }
+
+  .border-primary {
+    border-color: #9b773d;
+  }
+}
+
+@font-face {
+  font-family: "roboto flex";
+  src: url("/public/fonts/RobotoFlex-VariableFont_GRAD\,XOPQ\,XTRA\,YOPQ\,YTAS\,YTDE\,YTFI\,YTLC\,YTUC\,opsz\,slnt\,wdth\,wght.ttf");
+}
+
+:root {
+  --primay: #9b773d;
+  --secondary: #615545;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  /* scrollbar-width: none; */
+  -ms-overflow-style: none;
+}
+
+body {
+  font-family: "roboto flex", sans-serif;
+}
+
+.text-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.roboto-flex {
+  font-family: "Roboto Flex", sans-serif;
+}
+
+.anton {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.lucide-component {
+  #componentR {
+    transform-origin: center;
+    animation: components 3s infinite;
+  }
+
+  #componentL {
+    transform-origin: center;
+    animation: components 3s infinite;
+  }
+
+  #componentB {
+    transform-origin: center;
+    animation: components 3s infinite;
+  }
+
+  #componentT {
+    transform-origin: center;
+    animation: components 3s infinite;
+  }
+}
+
+@keyframes components {
+  0% {
+    transform: rotate(0deg) scale(0.8);
+    opacity: 0.6;
+  }
+  25% {
+    transform: rotate(45deg) scale(1.1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: rotate(180deg) scale(1);
+    opacity: 1;
+  }
+  75% {
+    transform: rotate(315deg) scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: rotate(360deg) scale(0.8);
+    opacity: 0.6;
+  }
+}
+
+.animate span {
+  display: inline-block;
+  /* animation: fadeIn 0.5s infinite alternate; */
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate span:nth-child(1) {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+
+.animate span:nth-child(2) {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+.animate span:nth-child(3) {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+
+.animate span:nth-child(4) {
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+.animate span:nth-child(5) {
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+
+.animate span:nth-child(6) {
+  -webkit-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+
+.animate span:nth-child(7) {
+  -webkit-animation-delay: 0.7s;
+  animation-delay: 0.7s;
+}
+
+.animate span:nth-child(8) {
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+
+.animate span:nth-child(9) {
+  -webkit-animation-delay: 0.9s;
+  animation-delay: 0.9s;
+}
+
+/* .bx {
+  position: relative;
+  opacity: 0;
+  transition: top 3s 500ms;
+}
+
+.bx.in-view {
+  animation: bookanim 0.5s cubic-bezier(0.26, 0.86, 0.62, 0.9);
+  opacity: 1;
+}
+
+@keyframes bookanimx {
+  0% {
+    opacity: 0;
+    top: 100px;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+} */
+
+.animate {
+  position: relative;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 1s;
+
+  &.delay-50 {
+    transition: all 1s 50ms;
+  }
+
+  &.delay-100 {
+    transition: all 1s 100ms;
+  }
+
+  &.delay-150 {
+    transition: all 1s 150ms;
+  }
+
+  &.delay-200 {
+    transition: all 1s 200ms;
+  }
+
+  &.delay-250 {
+    transition: all 1s 250ms;
+  }
+
+  &.delay-300 {
+    transition: all 1s 300ms;
+  }
+
+  &.delay-350 {
+    transition: all 1s 350ms;
+  }
+
+  &.delay-400 {
+    transition: all 1s 400ms;
+  }
+
+  &.delay-450 {
+    transition: all 1s 450ms;
+  }
+
+  &.delay-500 {
+    transition: all 1s 500ms;
+  }
+
+  &.delay-550 {
+    transition: all 1s 550ms;
+  }
+
+  &.delay-600 {
+    transition: all 1s 600ms;
+  }
+
+  &.delay-650 {
+    transition: all 1s 650ms;
+  }
+
+  &.delay-700 {
+    transition: all 1s 700ms;
+  }
+
+  &.delay-750 {
+    transition: all 1s 750ms;
+  }
+
+  &.delay-800 {
+    transition: all 1s 800ms;
+  }
+
+  &.delay-850 {
+    transition: all 1s 850ms;
+  }
+
+  &.delay-900 {
+    transition: all 1s 900ms;
+  }
+
+  &.delay-950 {
+    transition: all 1s 950ms;
+  }
+
+  &.delay-1000 {
+    transition: all 1s 1000ms;
+  }
+}
+
+.animate.in-view {
+  animation: bookanimx 0.5s cubic-bezier(0.26, 0.86, 0.62, 0.9);
+  opacity: 1;
+  transform: translateY(0px);
+  /* transition: all 4s; */
+}
+
+/* @keyframes bookanimx {
+  0% {
+    opacity: 0;
+    top: 0px;
+  }
+  100% {
+    opacity: 1;
+    top: 100px;
+  }
+}
+
+@keyframes bookanim {
+  0% {
+    opacity: 0;
+    top: 100px;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+} */
+
+@keyframes transform {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(-5deg);
+  }
+
+  75% {
+    transform: rotate(5deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.btn-hover {
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    animation: transform 0.1s infinite;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: var(--primay);
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    transition: 2s;
+  }
+
+  &:hover::before {
+    width: 120%;
+    height: 280%;
+  }
+}
+
+.text-hover {
+  position: relative;
+  z-index: 1;
+  color: white;
+}
