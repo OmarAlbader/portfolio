@@ -18,7 +18,7 @@ const Experiences = ({ exps }: IProps) => {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="lucide lucide-component text-yellow-500"
+              className="lucide lucide-component text-primary"
             >
               <path
                 id="componentR"

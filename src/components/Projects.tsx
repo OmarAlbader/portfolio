@@ -9,15 +9,17 @@ interface IProject {
   name: string;
   tags?: string[];
   img?: string;
+  url?: string;
 }
 
 const Projects = ({ title = "selected projects", projects }: IProps) => {
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const targetY = e.clientY - e.currentTarget.getBoundingClientRect().top;
+  const handleMouseMove = (e: MouseEvent) => {
+    const target = e.currentTarget as HTMLElement;
+    const targetY = e.clientY - target.getBoundingClientRect().top;
     const projectHeight = 180;
     const imgHeight = 240;
 
-    if (!e.currentTarget.classList.contains("projects")) return;
+    if (!target.classList.contains("projects")) return;
 
     projects.forEach((_, index) => {
       const projItem = document.getElementById(`proj-item${index + 1}`);
@@ -38,8 +40,7 @@ const Projects = ({ title = "selected projects", projects }: IProps) => {
         projItem.style.opacity = "0";
       }
 
-      const targetX = e.clientX - e.currentTarget.getBoundingClientRect().left;
-      const elementWidth = e.currentTarget.getBoundingClientRect().width;
+      const targetX = e.clientX - target.getBoundingClientRect().left;
 
       if (targetX < 40 || targetX > 1100) {
         projItem.style.opacity = "0";
@@ -51,17 +52,27 @@ const Projects = ({ title = "selected projects", projects }: IProps) => {
         targetY > projects.length * projectHeight + 120 - (paddingY - 10)
       ) {
         projItem.style.opacity = "0";
-        console.log(targetY);
       }
     });
   };
 
   useEffect(() => {
-    const projects = document.querySelector(".projects");
-    if (projects) {
-      projects.addEventListener("mousemove", handleMouseMove);
-      // window.addEventListener("mousemove", handleBodyMouseMove);
+    const projectsElement = document.querySelector(".projects");
+    if (projectsElement) {
+      projectsElement.addEventListener(
+        "mousemove",
+        handleMouseMove as unknown as EventListener
+      );
     }
+
+    return () => {
+      if (projectsElement) {
+        projectsElement.removeEventListener(
+          "mousemove",
+          handleMouseMove as unknown as EventListener
+        );
+      }
+    };
   }, []);
 
   return (
@@ -75,33 +86,35 @@ const Projects = ({ title = "selected projects", projects }: IProps) => {
               <div>
                 {projects.map((project, index) => (
                   <img
+                    key={`img-${index}`}
                     src={project.img}
                     alt={`${project.name} project`}
                     id={`proj-item${index + 1}`}
-                    className="w-50 h-60 m-0 text-lg z-50 pointer-events-none absolute opacity-0 -top-30 left-[40%]"
+                    className="w-50 h-60 m-0 text-lg z-50 pointer-events-none absolute opacity-0 -top-30 left-[80%]"
                   />
                 ))}
               </div>
               {projects.map((project, index) => (
-                <>
-                  <div
-                    key={index}
-                    className="group-hover:opacity-30 hover:!opacity-100 duration-500"
-                  >
-                    <a className="inline-flex gap-x-5 my-10" key={index + 1}>
+                <div key={`project-${index}`}>
+                  <div className="group-hover:opacity-30 hover:opacity-100! duration-500">
+                    <a
+                      className="inline-flex gap-x-5 my-10 w-full"
+                      href={project.url ?? "#"}
+                      target="_blank"
+                    >
                       <span className="text-2xl">#{index + 1}</span>
                       <div>
-                        <span className="">
-                          <span className="">{project.name}</span>
+                        <span>
+                          <span>{project.name}</span>
                         </span>
 
                         <small className="text-sm font-extralight pt-5 flex items-center roboto-flex">
-                          {project.tags?.map((tag, index) => (
-                            <div key={index}>
+                          {project.tags?.map((tag, tagIndex) => (
+                            <div key={`tag-${index}-${tagIndex}`}>
                               {tag}
                               {project.tags &&
-                                index !== project.tags.length - 1 && (
-                                  <span className="w-1.5 h-1.5 rounded-full bg-white/20 mx-2" />
+                                tagIndex !== project.tags.length - 1 && (
+                                  <span className="w-1.5 h-1.5 rounded-full bg-white/100 mx-2" />
                                 )}
                             </div>
                           ))}
@@ -112,7 +125,7 @@ const Projects = ({ title = "selected projects", projects }: IProps) => {
                   {index !== projects.length - 1 && (
                     <hr className="border-white/25 mb-0" />
                   )}
-                </>
+                </div>
               ))}
             </div>
           </div>

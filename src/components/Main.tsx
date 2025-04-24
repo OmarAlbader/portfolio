@@ -18,10 +18,10 @@ const Main = ({
   return (
     <>
       <div className="flex items-center justify-between pl-30 px-10 h-screen">
-        <div className="space-y-5 flex flex-col">
-          <div className="text-6xl font-bold anton tracking-wide text-yellow-500">
+        <div className="space-y-5 flex flex-col ">
+          <div className="text-6xl font-bold anton tracking-wide text-primary ">
             {dev.split(" ")[0].toUpperCase()}
-            <div className="text-white pl-5 animate-pulse">
+            <div className="text-secondary pl-5 animate-pulse">
               {dev
                 .split(" ")[1]
                 .toUpperCase()
@@ -47,8 +47,8 @@ const Main = ({
         </div>
 
         <div className="mt-50 space-y-5">
-          <div className="flex flex-col items-end text-lg font-extralight tracking-wide text-nowrap">
-            <span className="text-[#9B773D] font-bold anton text-4xl">
+          <div className="flex flex-col items-end text-lg font-medium tracking-wide text-secondary text-nowrap">
+            <span className="text-primary opacity-80 font-bold anton text-4xl">
               {NumofExp}+
             </span>
             Years of Experience
@@ -59,7 +59,7 @@ const Main = ({
               {skills.map((skill, index) => (
                 <li
                   key={index}
-                  className="before:content-[''] before:w-3 before:h-3 before:bg-[#9B773D] before:rounded-full before:absolute before:-right-8 before:top-2.5 relative"
+                  className="before:content-[''] before:w-3 before:h-3 before:bg-primary before:rounded-full before:absolute before:-right-8 before:top-2.5 relative"
                 >
                   {skill}
                 </li>
@@ -68,8 +68,8 @@ const Main = ({
           )}
 
           {NumofProjects && (
-            <div className="flex flex-col items-end text-lg font-extralight tracking-wide text-nowrap my-10">
-              <span className="text-[#9B773D] font-bold anton text-4xl">
+            <div className="flex flex-col items-end text-lg font-medium text-secondary tracking-wide text-nowrap my-10">
+              <span className="text-primary opacity-80 font-bold anton text-4xl">
                 {NumofProjects}+
               </span>
               Completed Projects

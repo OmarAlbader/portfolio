@@ -1,27 +1,38 @@
 @import "tailwindcss";
 
-@layer {
+@layer utilities {
   .text-primary {
-    color: #9b773d;
+    color: var(--primary-color);
+  }
+
+  .text-secondary {
+    color: var(--secondary-color);
   }
 
   .bg-primary {
-    background-color: #9b773d;
+    background-color: var(--primary-color);
+  }
+
+  .bg-secondary {
+    background-color: var(--secondary-color);
   }
 
   .border-primary {
-    border-color: #9b773d;
+    border-color: var(--primary-color);
+  }
+
+  .border-secondary {
+    border-color: var(--secondary-color);
+  }
+
+  .rounded {
+    border-radius: var(--border-radius);
   }
 }
 
 @font-face {
   font-family: "roboto flex";
-  src: url("/public/fonts/RobotoFlex-VariableFont_GRAD\,XOPQ\,XTRA\,YOPQ\,YTAS\,YTDE\,YTFI\,YTLC\,YTUC\,opsz\,slnt\,wdth\,wght.ttf");
-}
-
-:root {
-  --primay: #9b773d;
-  --secondary: #615545;
+  src: url("/fonts/RobotoFlex-VariableFont_GRAD\,XOPQ\,XTRA\,YOPQ\,YTAS\,YTDE\,YTFI\,YTLC\,YTUC\,opsz\,slnt\,wdth\,wght.ttf");
 }
 
 * {
@@ -36,6 +47,43 @@ html {
 
 body {
   font-family: "roboto flex", sans-serif;
+}
+
+/* Make sure content is above snow */
+.content-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+/* Font size utility classes */
+.text-small {
+  font-size: 0.875rem;
+}
+
+.text-medium {
+  font-size: 1rem;
+}
+
+.text-large {
+  font-size: 1.125rem;
+}
+
+/* Animation speed utility classes */
+.animation-slow * {
+  transition-duration: 1s !important;
+}
+
+.animation-normal * {
+  transition-duration: 0.5s !important;
+}
+
+.animation-fast * {
+  transition-duration: 0.25s !important;
+}
+
+/* Snow Effect Styles */
+.snowflake {
+  pointer-events: none;
 }
 
 .text-vertical {
@@ -100,7 +148,6 @@ body {
 
 .animate span {
   display: inline-block;
-  /* animation: fadeIn 0.5s infinite alternate; */
 }
 
 @keyframes fadeIn {
@@ -158,28 +205,6 @@ body {
   -webkit-animation-delay: 0.9s;
   animation-delay: 0.9s;
 }
-
-/* .bx {
-  position: relative;
-  opacity: 0;
-  transition: top 3s 500ms;
-}
-
-.bx.in-view {
-  animation: bookanim 0.5s cubic-bezier(0.26, 0.86, 0.62, 0.9);
-  opacity: 1;
-}
-
-@keyframes bookanimx {
-  0% {
-    opacity: 0;
-    top: 100px;
-  }
-  100% {
-    opacity: 1;
-    top: 0;
-  }
-} */
 
 .animate {
   position: relative;
@@ -272,30 +297,7 @@ body {
   animation: bookanimx 0.5s cubic-bezier(0.26, 0.86, 0.62, 0.9);
   opacity: 1;
   transform: translateY(0px);
-  /* transition: all 4s; */
 }
-
-/* @keyframes bookanimx {
-  0% {
-    opacity: 0;
-    top: 0px;
-  }
-  100% {
-    opacity: 1;
-    top: 100px;
-  }
-}
-
-@keyframes bookanim {
-  0% {
-    opacity: 0;
-    top: 100px;
-  }
-  100% {
-    opacity: 1;
-    top: 0;
-  }
-} */
 
 @keyframes transform {
   0% {
@@ -331,7 +333,7 @@ body {
     width: 0;
     height: 0;
     border-radius: 50%;
-    background-color: var(--primay);
+    background-color: var(--secondary-color);
     z-index: 1;
     transform: translate(-50%, -50%);
     transition: 2s;
@@ -346,5 +348,5 @@ body {
 .text-hover {
   position: relative;
   z-index: 1;
-  color: white;
+  color: var(--primary-color);
 }

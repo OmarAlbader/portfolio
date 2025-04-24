@@ -3,7 +3,7 @@ import Stack from "./Stack";
 const Stacks = () => {
   return (
     <div className="animate pl-30">
-      <div className="flex relative text-xl h-15 items-center">
+      <div className="flex relative text-xl h-15 items-center mb-10">
         {/* <span className="animate-ping absolute w-5 h-5 bg-white rounded-br-full rounded-tl-full mx-5"></span>
           <span className="animate- absolute w-5 h-5 bg-white rounded-bl-full rounded-tr-full mx-5"></span> */}
 
@@ -17,7 +17,7 @@ const Stacks = () => {
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="lucide lucide-component text-yellow-500"
+          className="lucide lucide-component text-primary"
         >
           <path
             id="componentR"
