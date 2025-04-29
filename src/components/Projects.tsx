@@ -90,7 +90,7 @@ const Projects = ({ title = "selected projects", projects }: IProps) => {
                     src={project.img}
                     alt={`${project.name} project`}
                     id={`proj-item${index + 1}`}
-                    className="h-60 aspect-video m-0 text-lg z-50 pointer-events-none absolute opacity-0 -top-30 left-[40%]"
+                    className="h-60 aspect-video m-0 text-lg z-50 pointer-events-none absolute opacity-0 -top-30 left-[60%]"
                   />
                 ))}
               </div>
