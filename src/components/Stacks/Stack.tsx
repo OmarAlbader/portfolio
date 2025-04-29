@@ -100,7 +100,7 @@ const Stack = ({ label, items }: IProps) => {
           {items.map((item, index) => (
             <li id={index.toString()} key={index} className="flex h-fit gap-5">
               <img
-                src={`/images/${item.image}`}
+                src={`/images/icons/${item.image}`}
                 alt={`${item.image.split(".")[0]} logo`}
                 className={`${
                   item.name === "Tailwind CSS" ? "h-6" : "h-10"

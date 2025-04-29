@@ -134,26 +134,32 @@ function App() {
         <Stacks />
 
         <Experiences
+          title="courses"
           exps={[
             {
-              company: "Strativ AB",
-              title: "Frontend Developer",
-              date: "2024 - Present",
+              company: "Muhammad Naga",
+              title: "Pro Frontend Engineer ReactJS + TypeScript + Redux",
+              date: "2025 - Present",
             },
             {
-              company: "Experion Technologies",
-              title: "Software Engineer",
-              date: "2021 - 2024",
+              company: "Tariq Elouzeh",
+              title: "React Bootcamp | 2023",
+              date: "2024",
             },
             {
-              company: "Strativ AB",
-              title: "Backend Developer",
-              date: "2019 - 2021",
+              company: "Tariq Elouzeh",
+              title: "FullStack Web Development: Node | Express | MongoDB",
+              date: "2024",
             },
             {
-              company: "Experion Technologies",
-              title: "AI Engineer",
-              date: "2017 - 2019",
+              company: "Laracasts",
+              title: "30 Days to Learn Laravel - Complete 8 Hour Course",
+              date: "2024 - 2025",
+            },
+            {
+              company: "Laracasts",
+              title: "PHP For Beginners – Complete Laracasts Course",
+              date: "2024 - 2025",
             },
           ]}
         />
@@ -163,20 +169,20 @@ function App() {
             {
               name: "Tawasol",
               tags: ["React", "Redux", "React i18n"],
-              img: "/images/illustrator.webp",
+              img: "/images/projects/tawasol.webp",
               url: "https://github.com/OmarAlbader/tawasol-client",
-            },
-            {
-              name: "Notaty",
-              tags: ["HTML", "CSS & SCSS", "Javascript"],
-              img: "/images/photoshop.webp",
-              url: "https://github.com/OmarAlbader/Notaty",
             },
             {
               name: "Tenzies Game",
               tags: ["React.js", "Tailwind CSS"],
-              img: "/images/adobexd.webp",
+              img: "/images/projects/tenzies.webp",
               url: "https://github.com/OmarAlbader/Tenzies-Game",
+            },
+            {
+              name: "Notaty",
+              tags: ["HTML", "CSS & SCSS", "Javascript"],
+              img: "/images/projects/notaty.webp",
+              url: "https://github.com/OmarAlbader/Notaty",
             },
           ]}
         />

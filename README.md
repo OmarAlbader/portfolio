@@ -92,3 +92,5 @@ src/
 - GitHub: [https://github.com/OmarAlbader](https://github.com/OmarAlbader)
 - LinkedIn: [https://www.linkedin.com/in/omar-albader-931665222](https://www.linkedin.com/in/omar-albader-931665222/)
 - Email: omaratheer233@gmail.com
+
+_This portfolio is currently under development._

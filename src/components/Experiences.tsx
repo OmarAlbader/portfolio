@@ -1,8 +1,9 @@
 interface IProps {
+  title: string;
   exps: { company: string; title: string; date: string }[];
 }
 
-const Experiences = ({ exps }: IProps) => {
+const Experiences = ({ exps, title }: IProps) => {
   return (
     <>
       {exps.length ? (
@@ -38,10 +39,12 @@ const Experiences = ({ exps }: IProps) => {
               />
             </svg>
 
-            <span className="pl-5">MY EXPERIENCE</span>
+            <span className="pl-5">
+              {title.toUpperCase() ?? "MY EXPERIENCE"}
+            </span>
           </div>
 
-          <ul className="flex flex-col pl-0 relative text-6xl anton ">
+          <ul className="flex flex-col pl-5 relative text-4xl anton ">
             {exps.map((exp, index) => (
               <li
                 className="animate inline-flex flex-col gap-x-5 my-10"

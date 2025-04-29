@@ -29,23 +29,20 @@ const ThemeControls = () => {
     setRainbowSnow,
   } = useTheme();
 
-  // Local states for color inputs
   const [localPrimaryColor, setLocalPrimaryColor] = useState(primaryColor);
   const [localSecondaryColor, setLocalSecondaryColor] =
     useState(secondaryColor);
   const [localSnowflakeColor, setLocalSnowflakeColor] =
     useState(snowflakeColor);
 
-  // Deferred values to reduce render frequency
   const deferredPrimaryColor = useDeferredValue(localPrimaryColor);
   const deferredSecondaryColor = useDeferredValue(localSecondaryColor);
   const deferredSnowflakeColor = useDeferredValue(localSnowflakeColor);
 
-  // Update the actual theme only after the deferred value changes
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setPrimaryColor(deferredPrimaryColor);
-    }, 50); // Small delay to batch changes
+    }, 50);
     return () => clearTimeout(timeoutId);
   }, [deferredPrimaryColor, setPrimaryColor]);
 
@@ -63,7 +60,6 @@ const ThemeControls = () => {
     return () => clearTimeout(timeoutId);
   }, [deferredSnowflakeColor, setSnowflakeColor]);
 
-  // Update local state when context values change from outside
   useEffect(() => {
     setLocalPrimaryColor(primaryColor);
   }, [primaryColor]);
@@ -83,9 +79,7 @@ const ThemeControls = () => {
       <div className="space-y-6">
         {/* Primary Color */}
         <div>
-          <label className="block text-sm font-medium mb-2">
-            Primary Color
-          </label>
+          <div className="block text-sm font-medium mb-2">Primary Color</div>
           <div className="flex flex-wrap gap-2">
             <div
               className="relative overflow-hidden rounded-xl border-2 w-10 h-10"
@@ -104,9 +98,7 @@ const ThemeControls = () => {
 
         {/* Secondary Color */}
         <div>
-          <label className="block text-sm font-medium mb-2">
-            Secondary Color
-          </label>
+          <div className="block text-sm font-medium mb-2">Secondary Color</div>
           <div className="flex flex-wrap gap-2">
             <div
               className="relative overflow-hidden rounded-xl border-2 w-10 h-10"
@@ -153,12 +145,11 @@ const ThemeControls = () => {
           </label>
         </div>
 
-        {/* Only show snow color options if snow is enabled */}
         {snowEnabled && (
           <div>
-            <label className="block text-sm font-medium mb-2">
+            <div className="block text-sm font-medium mb-2">
               Snowflakes Color
-            </label>
+            </div>
             <div className="flex flex-wrap gap-2">
               <div
                 className="relative overflow-hidden rounded-xl border-2 w-10 h-10"
@@ -190,9 +181,7 @@ const ThemeControls = () => {
 
         {/* Border Radius */}
         <div>
-          <label className="block text-sm font-medium mb-2">
-            Border Radius
-          </label>
+          <div className="block text-sm font-medium mb-2">Border Radius</div>
           <div className="flex items-center gap-3">
             <input
               type="range"
@@ -212,11 +201,10 @@ const ThemeControls = () => {
 
         {/* Animation Speed */}
         <div>
-          <label className="block text-sm font-medium mb-2">
-            Animation Speed
-          </label>
+          <div className="block text-sm font-medium mb-2">Animation Speed</div>
           <select
             value={animationSpeed}
+            id="animation-speed"
             onChange={(e) => setAnimationSpeed(e.target.value)}
             className="w-full bg-gray-800 border border-gray-700 rounded-md py-2 px-3"
           >
